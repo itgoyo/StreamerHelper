@@ -39,6 +39,12 @@ docker build -t streamerhelper .
 docker run --name stream -itd -v /your_project_path/info.json:/app/templates/info.json -v /your_project_path/download/:/app/download --dns 114.114.114.114 --restart always streamerhelper
 ```
 
+或者直接使用docker.io上面的镜像
+```
+docker pull itgoyo/streamerhelper
+```
+然后配置好相应的`info.json`内容，还有设置好文件的下载目录`download`即可
+
 <br></br>
 ### 直接部署到本机环境上
 #### 安装 Node.js
@@ -62,9 +68,15 @@ sudo apt-get update
 sudo apt-get install ffmpeg
 ```
 #### 登录：
-现在只支持扫码登录和`access_token`登录，程序启动后会在控制台打印二维码，如果无法正常显示，请打开`./qrcode.png`
-如果选择`access_token`登录，需要手动填写`personInfo`中`access_token`的值
-#### 运行：
+`access_token`的获取可以使用`biliup-rs`这个项目获取
+[https://github.com/ForgQi/biliup-rs](https://github.com/ForgQi/biliup-rs)
+
+![](https://biliup.github.io/resource/login.gif)
+
+又或者从这个项目获取`BiliHelper-personal`
+
+[https://github.com/lkeme/BiliHelper-personal](https://github.com/lkeme/BiliHelper-personal)
+
 ```shell
 npm i -g pm2
 # 如果装不动，添加 --registry=https://registry.npm.taobao.org 参数，npm i 同理
@@ -73,6 +85,11 @@ npm i
 npm run serve
 ```
 ## Configuration
+
+配置文件`info.json`可以这个网站快速生成：[https://streamertool.vercel.app/](https://streamertool.vercel.app)
+
+![](https://cdn.jsdelivr.net/gh/itgoyo/PicGoRes@master/img/20220518102430.png)
+
 `info.json`中字段的含义
 ### StreamerHelper
 | 字段            | 说明          | 可选值               |是否必填|默认值|
@@ -241,7 +258,7 @@ npm run serve
 <br>
 
 Thanks：
-  
+
 <div>
 <a class="mr-2" href="https://github.com/ForgQi">
           <img class="d-block avatar-user" src="https://avatars3.githubusercontent.com/u/34411314?s=64&amp;v=4" width="50" height="50" alt="@ForgQi">
@@ -268,20 +285,23 @@ Thanks：
 - [ ] 规范化log，完善debug log
 
 ## Example
-<img src="https://i.loli.net/2020/11/12/MUNDe1bPR2iGfpB.jpg" alt="例子" width="500">
+<img src="https://cdn.jsdelivr.net/gh/itgoyo/PicGoRes@master/img/20220518102040.png" alt="例子" width="500">
 
-见：https://space.bilibili.com/3356199 或者 https://space.bilibili.com/11314291
+见：https://space.bilibili.com/526120032
 
 ## Tips
 
 建议使用管口大的vps，否则上传下载速度可能会受影响。更新后请及时拉取像或git pull重新pm2 stop && npm run serve。vps比较低配的话配置的主播数量不要太多，也要注意vps的磁盘大小。日志文件会自动创建，在./logs/下。
 
 
-有问题加qq群1142141023，备注streamerHelper
+## 代录服务
 
-## 请开发者喝杯咖啡 
+没有服务器的可以又想录制的可以找我代录制，5B币(大会员用户系统每个月都会送5B币)或者5RMB代录某主播一个月+v:itgoyo 记得备注(代录)
 
-**您的捐赠和star是开发者持续维护的最大动力!**
+## 需要远程搭建帮助的付费[不贵]可以+v:itgoyo 记得备注(代录搭建)
+
+有能力或者有时间的可以自行查资料自己动手做，我个人也比较推荐因为并不复杂，至于为什么收费，因为我没有这么多时间帮助小白弄这个东西，一天过来几个让我搭建环境的，我自己还有本职工作，也没这么多时间折腾这东西，所以先查资料或者看别人的视频，最后还是不会或者真的非常需要再来找我。
+
 <br>
-<img src="https://i.loli.net/2020/11/12/gWbme18FhpSVCJy.png" width = "200"  alt="" />
-<img src="https://i.loli.net/2020/11/12/l1kirIpOa2voDhM.png" width = "200"  alt=""  />
+<img src="https://cdn.jsdelivr.net/gh/itgoyo/PicGoRes@master/img/收钱码.png"/>
+
